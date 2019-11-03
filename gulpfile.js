@@ -103,7 +103,7 @@ function php() {
 function watch() {
     gulp.watch('./src/scss/**/*.scss', styles)
         .on('change', function (event) {
-            console.log("event happened:"+JSON.stringify(event));
+            console.log(`${event} changed`);
             if (event.type === 'deleted') {
                 delete cache.caches['sass'][event.path];
             }
