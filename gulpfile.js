@@ -16,7 +16,9 @@ const gulp              = require('gulp'),
       postcssPresetEnv  = require('postcss-preset-env'),
       mqpacker          = require('css-mqpacker'),
       sortCSSmq         = require('sort-css-media-queries'),
-      postcssStripUnits = require('postcss-strip-units');
+      postcssStripUnits = require('postcss-strip-units'),
+      cached            = require('gulp-cached'),
+      dependents        = require('gulp-dependents');
 
 isDev  = true;
 isProd = !isDev;
@@ -42,9 +44,11 @@ let webpackConfig = {
 }
 
 function styles() {
-    return gulp.src('src/scss/index.scss')
+    return gulp.src('src/scss/**/*.scss')
+        .pipe(cached('sass'))
+        .pipe(dependents())
         .pipe(gulpif(isDev, sourcemaps.init()))
-        .pipe(sass().on("error", notify.onError()))  
+        .pipe(sass().on("error", notify.onError()))
         .pipe(postcss([postcssPresetEnv]))
         .pipe(postcss([short]))
         .pipe(postcss([assets({ loadPaths: ['dist/assets/fonts/**/*', 'dist/assets/img/'], relativeTo: 'dist/css/'})]).on("error", notify.onError()))
@@ -97,7 +101,13 @@ function php() {
 }
 
 function watch() {
-    gulp.watch('./src/scss/**/*.scss', styles);
+    gulp.watch('./src/scss/**/*.scss', styles)
+        .on('change', function (event) {
+            console.log("event happened:"+JSON.stringify(event));
+            if (event.type === 'deleted') {
+                delete cache.caches['sass'][event.path];
+            }
+        });
     gulp.watch('./src/**/*.js', scripts);
     gulp.watch('./src/**/*.ts', scripts);
     gulp.watch('./src/**/*.html', html);
