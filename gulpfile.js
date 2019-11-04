@@ -5,6 +5,7 @@ const gulp              = require('gulp'),
       rename            = require('gulp-rename'),
       notify            = require("gulp-notify"),
       webpack           = require('webpack-stream'),
+      webpackConfig     = require('./webpack.config'),
       browserSync       = require('browser-sync'),
       sourcemaps        = require('gulp-sourcemaps'),
       plumber           = require('gulp-plumber'),
@@ -20,28 +21,8 @@ const gulp              = require('gulp'),
       cached            = require('gulp-cached'),
       dependents        = require('gulp-dependents');
 
-isDev  = true;
-isProd = !isDev;
-
-let webpackConfig = {
-    output: {
-        filename: 'bundle.js'
-    },
-    resolve : {
-        extensions: ['.js', '.ts']
-    },
-	module: {
-		rules: [
-			{
-				test: /\.(js|ts)$/,
-				loader: 'babel-loader',
-				exclude: '/node_modules/'
-			}
-		]
-	},
-    mode: isDev ? 'development' : 'production',
-    devtool: isProd ? false : 'cheap-module-eval-source-map'
-}
+const isDev  = process.env.NODE_ENV !== 'production';
+const isProd = !isDev;
 
 function styles() {
     return gulp.src('src/scss/**/*.scss')
@@ -77,7 +58,7 @@ function browser() {
         },
         // proxy: 'gulp',
         notify: false,
-        open: true,
+        // open: true,
         // online: false, // Work Offline Without Internet Connection
         // tunnel: true, tunnel: "projectname", // Demonstration page: http://projectname.localtunnel.me
     })
@@ -101,16 +82,16 @@ function php() {
 }
 
 function watch() {
-    gulp.watch('./src/scss/**/*.scss', styles)
+    gulp.watch('./src/scss/**/*.scss', gulp.series(styles))
         .on('change', function (event) {
             console.log(`${event} changed`);
             if (event.type === 'deleted') {
                 delete cache.caches['sass'][event.path];
             }
         });
-    gulp.watch('./src/**/*.js', scripts);
-    gulp.watch('./src/**/*.ts', scripts);
-    gulp.watch('./src/**/*.html', html);
+    gulp.watch('./src/**/*.js', gulp.series(scripts));
+    gulp.watch('./src/**/*.ts', gulp.series(scripts));
+    gulp.watch('./src/**/*.html', gulp.series(html));
 }
 
 module.exports.clean = clean;
