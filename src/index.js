@@ -1,3 +1,3 @@
 import $ from 'jquery';
 import 'regenerator-runtime/runtime';
-import './ts/typescript-test.ts';
+import '@/ts/typescript-test'

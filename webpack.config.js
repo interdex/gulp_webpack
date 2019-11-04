@@ -1,3 +1,4 @@
+const path = require('path')
 const isDev  = process.env.NODE_ENV !== 'production';
 const isProd = !isDev;
 
@@ -6,7 +7,11 @@ const webpackConfig = {
       filename: 'bundle.js'
   },
   resolve : {
-      extensions: ['.js', '.ts']
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+      '~': path.resolve(__dirname, 'src'),
+    },
+    extensions: ['.js', '.ts']
   },
 module: {
   rules: [

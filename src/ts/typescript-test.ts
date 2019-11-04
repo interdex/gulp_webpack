@@ -10,3 +10,5 @@ interface OBJ {
 const wfm: OBJ = {field}
 
 console.log(wfm.field, srt2);
+
+export default {}
