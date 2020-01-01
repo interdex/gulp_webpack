@@ -1,5 +1,5 @@
 node_modules
-dist/bundle.js
-dist/index.html
-dist/css
+dist/**/*.js
+dist/**/*.css
+dist/**/*.html
 package-lock.json
