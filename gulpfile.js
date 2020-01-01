@@ -32,7 +32,7 @@ function styles() {
     .pipe(sass().on("error", notify.onError()))
     .pipe(postcss([postcssPresetEnv]))
     .pipe(postcss([short]))
-    .pipe(postcss([assets({ loadPaths: ['dist/assets/fonts/**/*', 'dist/assets/img/'], relativeTo: 'dist/css/'})]).on("error", notify.onError()))
+    .pipe(postcss([assets({ loadPaths: ['dist/assets/fonts/**/*', 'dist/assets/img/**/*'], relativeTo: 'dist/css/'})]).on("error", notify.onError()))
     .pipe(postcss([postcssStripUnits]))
     .pipe(gulpif(isProd, postcss([autoprefixer(['> 1%', 'last 2 versions', 'not IE 8'])])))
     .pipe(gulpif(isProd, postcss([mqpacker({ sort: sortCSSmq })])))
