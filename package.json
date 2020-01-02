@@ -29,7 +29,6 @@
     "gulp": "^4.0.2",
     "gulp-cached": "^1.1.1",
     "gulp-dependents": "^1.2.3",
-    "gulp-eslint": "^6.0.0",
     "gulp-file-include": "^2.1.1",
     "gulp-if": "^3.0.0",
     "gulp-notify": "^3.2.0",
