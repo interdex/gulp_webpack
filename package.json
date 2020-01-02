@@ -7,7 +7,9 @@
     "dev": "gulp",
     "lint": "eslint ./",
     "lint:fix": "eslint ./ --fix",
-    "build": "cross-env NODE_ENV=production gulp"
+    "build": "cross-env NODE_ENV=production gulp",
+    "stylelint": "stylelint ./src",
+    "stylelint:fix": "stylelint ./src --fix"
   },
   "author": "",
   "license": "ISC",
@@ -62,6 +64,10 @@
   "lint-staged": {
     "*.js": [
       "npm run lint:fix",
+      "git add"
+    ],
+    "*.scss": [
+      "npm run stylelint",
       "git add"
     ]
   }
