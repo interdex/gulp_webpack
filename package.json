@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "gulp",
-    "lint": "eslint ./src",
-    "lint:fix": "eslint ./src --fix",
+    "lint": "eslint ./",
+    "lint:fix": "eslint ./ --fix",
     "build": "cross-env NODE_ENV=production gulp"
   },
   "author": "",
