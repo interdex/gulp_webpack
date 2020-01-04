@@ -4,7 +4,7 @@
 * Интеграция с балдлером [Webpack](https://webpack.js.org/) для наилучшего опыта написания кода
 * Интеграция с препроцессором [Sass](https://sass-lang.com/) в синтаксисе .scss
 * Интеграция с постпроцессором [PostCSS](https://postcss.org/)
-* Интеграция с линтером [ESLint](https://eslint.org/) c конфигом [aibnb-base](https://github.com/airbnb/javascript) – как наиболее популярное и стабильное решиние.
+* Интеграция с линтером [ESLint](https://eslint.org/) c конфигом [airbnb-base](https://github.com/airbnb/javascript) – как наиболее популярное и стабильное решиние.
 * Интеграция с [TypeScript](https://www.typescriptlang.org/) для любителей строгой типизации
 * Интеграция с литером [Stylelint](https://stylelint.io/) c конфигами [stylelint-config-standard](https://www.npmjs.com/package/stylelint-config-standard) и [stylelint-config-recess-order](https://www.npmjs.com/package/stylelint-config-recess-order)
 * Интеграция с библиотекой миксинов [WonderCSS](https://github.com/m4n1ac47/gulp_webpack/blob/master/src/scss/mixins/_wonder.scss)
