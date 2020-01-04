@@ -28,6 +28,9 @@
     "cssnano": "^4.1.10",
     "del": "^5.1.0",
     "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.19.1",
     "gulp": "^4.0.2",
     "gulp-cached": "^1.1.1",
     "gulp-dependents": "^1.2.3",
@@ -45,7 +48,6 @@
     "postcss-preset-env": "^6.7.0",
     "postcss-short": "^5.0.0",
     "postcss-strip-units": "^2.0.1",
-    "regenerator-runtime": "^0.13.3",
     "sort-css-media-queries": "^1.5.0",
     "stylelint": "^12.0.1",
     "stylelint-config-recess-order": "^2.0.3",
@@ -55,7 +57,8 @@
     "webpack-stream": "^5.2.1"
   },
   "dependencies": {
-    "jquery": "^3.4.1"
+    "jquery": "^3.4.1",
+    "regenerator-runtime": "^0.13.3"
   },
   "husky": {
     "hooks": {

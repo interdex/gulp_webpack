@@ -1,4 +1,3 @@
-/* global  require */
 const { src, dest, watch, series, parallel } = require('gulp')
 const include           = require('gulp-file-include')
 const gulpif            = require('gulp-if')
@@ -23,7 +22,6 @@ const postcssStripUnits = require('postcss-strip-units')
 const cached            = require('gulp-cached')
 const dependents        = require('gulp-dependents')
 
-/* global  process */
 const isDev  = process.env.NODE_ENV !== 'production'
 const isProd = !isDev
 
@@ -82,11 +80,9 @@ function html() {
 function serve() {
   watch('./src/scss/**/*.scss', series(styles))
     .on('change', function (event) {
-      /* global console */
       // eslint-disable-next-line no-console
       console.log(`${event} changed`)
       if (event.type === 'deleted') {
-        /* global cache */
         delete cache.caches['sass'][event.path]
       }
     })
@@ -95,9 +91,6 @@ function serve() {
   watch('./src/**/*.html', series(html))
 }
 
-
-
-/* global exports */
 exports.clean = clean
 exports.serve = parallel(browser, serve)
 exports.build = series(clean, parallel(html, styles, scripts))

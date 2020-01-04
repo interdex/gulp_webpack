@@ -1,7 +1,15 @@
 {
-  "extends": "eslint:recommended",
+  "extends": ["airbnb-base"],
   "parser": "babel-eslint",
   "rules": {
-    "no-console": "error"
+    "semi": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "alias": [
+        ["@", "./src"],
+        ["~", "./src"]
+      ]
+    }
   }
 }
