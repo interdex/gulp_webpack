@@ -1,6 +1,6 @@
 {
   "name": "gulp_webpack",
-  "version": "2.5.8",
+  "version": "3.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
     "stylelint": "stylelint ./src",
     "stylelint:fix": "stylelint ./src --fix"
   },
-  "author": "",
+  "author": "Filipp Khorolskyi <m4n1ac47@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.7.7",
