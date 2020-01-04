@@ -46,7 +46,7 @@ function styles() {
 }
 
 function scripts() {
-  return src(['src/**.js'])
+  return src(['src/entryes/**.js'])
     .pipe(plumber())
     .pipe(named())
     .pipe(webpack(webpackConfig).on("error", notify.onError()))
