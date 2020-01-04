@@ -67,11 +67,11 @@
   },
   "lint-staged": {
     "*.js": [
-      "npm run lint",
+      "yarn run lint",
       "git add"
     ],
     "*.scss": [
-      "npm run stylelint",
+      "yarn run stylelint",
       "git add"
     ]
   }
