@@ -9,6 +9,6 @@ interface OBJ {
 const wfm: OBJ = { field }
 
 // eslint-disable-next-line no-console
-console.log(wfm.field, srt2);
+console.log(wfm.field, srt2)
 
 export default {}

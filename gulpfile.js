@@ -21,6 +21,7 @@ const sortCSSmq         = require('sort-css-media-queries')
 const postcssStripUnits = require('postcss-strip-units')
 const cached            = require('gulp-cached')
 const dependents        = require('gulp-dependents')
+const named             = require('vinyl-named')
 
 const isDev  = process.env.NODE_ENV !== 'production'
 const isProd = !isDev
@@ -45,8 +46,9 @@ function styles() {
 }
 
 function scripts() {
-  return src('src/index.js')
+  return src(['src/**.js'])
     .pipe(plumber())
+    .pipe(named())
     .pipe(webpack(webpackConfig).on("error", notify.onError()))
     .pipe(dest('dist/'))
     .pipe(browserSync.stream())

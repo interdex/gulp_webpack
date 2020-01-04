@@ -5,7 +5,7 @@ const isProd = !isDev;
 
 const webpackConfig = {
   output: {
-      filename: 'bundle.js'
+    filename: '[name].bundle.js'
   },
   resolve : {
     alias: {
