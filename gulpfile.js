@@ -22,6 +22,8 @@ const postcssStripUnits = require('postcss-strip-units')
 const cached            = require('gulp-cached')
 const dependents        = require('gulp-dependents')
 const named             = require('vinyl-named')
+const htmlbeautify      = require('gulp-html-beautify')
+const removeEmptyLines  = require('gulp-remove-empty-lines')
 
 const isDev  = process.env.NODE_ENV !== 'production'
 const isProd = !isDev
@@ -46,7 +48,7 @@ function styles() {
 }
 
 function scripts() {
-  return src(['src/entryes/**.js'])
+  return src(['src/entryes/**.js', 'src/entryes/**.ts'])
     .pipe(plumber())
     .pipe(named())
     .pipe(webpack(webpackConfig).on("error", notify.onError()))
@@ -75,6 +77,12 @@ function clean(end) {
 function html() {
   return src('src/**.html')
     .pipe(include())
+    .pipe(gulpif(isProd, htmlbeautify({
+      "indent_size": 2,
+      "eol": "\n",
+      "end_with_newline": false
+    })))
+    .pipe(gulpif(isProd, removeEmptyLines()))
     .pipe(dest('./dist'))
     .pipe(browserSync.stream())
 }
