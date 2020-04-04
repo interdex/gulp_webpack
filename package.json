@@ -1,8 +1,7 @@
 {
   "name": "gulp_webpack",
   "version": "3.0.2",
-  "description": "",
-  "main": "index.js",
+  "private": true,
   "scripts": {
     "dev": "gulp",
     "build": "cross-env NODE_ENV=production gulp build",
