@@ -3,7 +3,7 @@ const srt: string = '1'
 const srt2 = Number(srt)
 
 interface OBJ {
-    field: string
+  field: string
 }
 
 const wfm: OBJ = { field }
