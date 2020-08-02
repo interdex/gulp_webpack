@@ -1,6 +1,7 @@
 # Wonder Starter 3.0
 
 ## Особенности сборки
+
 * Интеграция с балдлером [Webpack](https://webpack.js.org/) для наилучшего опыта написания кода
 * Интеграция с препроцессором [Sass](https://sass-lang.com/) в синтаксисе .scss
 * Интеграция с постпроцессором [PostCSS](https://postcss.org/)
@@ -22,17 +23,20 @@
 * pre-commit хуки для [ESLint](https://eslint.org/) и [Stylelint](https://stylelint.io/)
 
 ## Необходимые зависимости
+
 1. [NodeJS](https://nodejs.org) — JavaScript runtime built on Chrome's V8 JavaScript engine.
 1. [Yarn](https://yarnpkg.com/en) — пакетный менеджер
 1. [Git](https://git-scm.com) — система контроля версий
 
 ## Установка
+
 1. Клонировать сборку при помощи GIT или скачать архив [Download ZIP](https://github.com/m4n1ac47/gulp_webpack/archive/master.zip)
 1. В корневой директории ввести в терминале — **yarn**, чтоб установить необходимые зависимости.
 Если [Yarn](https://yarnpkg.com/en) не установлен, ввести — **npm i**
 1. Done **:D**
 
 ## Команды
+
 | Yarn                   | NPM                  |                                        |
 | -------------          | ---------------      | -------------                          |
 | **gulp**               | **gulp**             | запуск в режиме **development**        |
