@@ -9,6 +9,7 @@
 * Интеграция с литером [Stylelint](https://stylelint.io/) c конфигами [stylelint-config-standard](https://www.npmjs.com/package/stylelint-config-standard) и [stylelint-config-recess-order](https://www.npmjs.com/package/stylelint-config-recess-order)
 * Интеграция с библиотекой миксинов [WonderCSS](https://github.com/m4n1ac47/gulp_webpack/blob/master/src/scss/mixins/_wonder.scss)
 * Интеграция с библиотекой [SmartGrid](https://github.com/dmitry-lavrik/smart-grid)
+* Интеграция с [Webpack Bundle Analyzer](https://www.npmjs.com/package/webpack-bundle-analyzer)
 * **source-map** для Javascript, TypeScript и Sass в режиме **development** для отладки.
 * Минификация стилей и скриптов в режиме **production**
 * Добавление вендорных префиксов в режиме **production**
@@ -27,7 +28,7 @@
 
 ## Установка
 1. Клонировать сборку при помощи GIT или скачать архив [Download ZIP](https://github.com/m4n1ac47/gulp_webpack/archive/master.zip)
-1. В корневой директории ввести в терминале — **yarn**, чтоб установить необходимые зависимости.  
+1. В корневой директории ввести в терминале — **yarn**, чтоб установить необходимые зависимости.
 Если [Yarn](https://yarnpkg.com/en) не установлен, ввести — **npm i**
 1. Done **:D**
 

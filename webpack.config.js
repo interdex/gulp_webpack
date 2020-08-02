@@ -1,7 +1,52 @@
 const path = require('path')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const TerserPlugin = require('terser-webpack-plugin')
 
-const isDev  = process.env.NODE_ENV !== 'production';
-const isProd = !isDev;
+const isDev  = process.env.NODE_ENV !== 'production'
+const isProd = !isDev
+
+const plugins = () => {
+  if (isProd) {
+    return [
+      new BundleAnalyzerPlugin()
+    ]
+  }
+
+  return []
+}
+
+const optimization = () => {
+  if (isProd) {
+    return {
+      minimize: true,
+      minimizer: [
+        new TerserPlugin()
+      ]
+    }
+  }
+
+  return {
+    minimize: false,
+    minimizer: []
+  }
+}
+
+const babelOptions = preset => {
+  const options = {
+    presets: [
+      '@babel/preset-env'
+    ],
+    plugins: [
+      "@babel/plugin-proposal-nullish-coalescing-operator",
+		  "@babel/plugin-proposal-optional-chaining",
+		  "@babel/plugin-proposal-class-properties"
+    ]
+  }
+
+  if (preset) options.presets.push(preset)
+
+  return options
+}
 
 const webpackConfig = {
   output: {
@@ -21,14 +66,7 @@ module: {
       exclude: '/node_modules/',
       loader: {
         loader: 'babel-loader',
-        options: {
-          presets: [
-            '@babel/preset-env'
-          ],
-          plugins: [
-            '@babel/plugin-proposal-class-properties'
-          ]
-        }
+        options: babelOptions()
       }
     },
     {
@@ -36,21 +74,15 @@ module: {
       exclude: /node_modules/,
       loader: {
         loader: 'babel-loader',
-        options: {
-          presets: [
-            '@babel/preset-env',
-            '@babel/preset-typescript'
-          ],
-          plugins: [
-            '@babel/plugin-proposal-class-properties'
-          ]
-        }
+        options: babelOptions('@babel/preset-typescript')
       }
     }
   ]
 },
   mode: isDev ? 'development' : 'production',
-  devtool: isProd ? false : 'cheap-module-eval-source-map'
+  devtool: isProd ? false : 'eval-cheap-module-source-map',
+  plugins: plugins(),
+  optimization: optimization()
 }
 
 module.exports = webpackConfig;
